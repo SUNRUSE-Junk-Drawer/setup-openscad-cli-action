@@ -30,4 +30,5 @@ jobs:
 
     # OpenSCAD is now available on the path.
     - run: openscad --help
+      shell: bash
 ```
