@@ -5,6 +5,8 @@ git checkout temp
 
 git submodule update --init --recursive --depth 1 submodules/openscad/openscad
 
+cd submodules/openscad/openscad
+
 if [ "$(uname)" == "Darwin" ]; then
   source setenv_mac.sh
   ./scripts/macosx-build-dependencies.sh
