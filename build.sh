@@ -18,6 +18,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   ./scripts/check-dependencies.sh
   qmake openscad.pro
   make -j 2
+  ls
 else
   source ./scripts/setenv-mingw-xbuild.sh 64
   ./scripts/mingw-x-build-dependencies.sh 64
