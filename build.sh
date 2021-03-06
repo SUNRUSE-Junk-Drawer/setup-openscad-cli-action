@@ -13,7 +13,7 @@ if [ "$(uname)" == "Darwin" ]; then
   qmake openscad.pro
   make
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  sudo apt-get install libglew-dev libxmu-dev libxi-dev qt5-default qtmultimedia5-dev -y
+  sudo apt-get install libglew-dev libxmu-dev libxi-dev qt5-default qtmultimedia5-dev libboost-filesystem-dev -y
   source ./scripts/setenv-unibuild.sh
   ./scripts/check-dependencies.sh
   qmake openscad.pro
