@@ -1,3 +1,3 @@
 set -e
 
-echo "$PWD/build/bin" >> $GITHUB_PATH
+echo "$PWD/submodules/openscad/openscad" >> $GITHUB_PATH
