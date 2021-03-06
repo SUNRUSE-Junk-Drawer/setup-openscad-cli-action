@@ -15,7 +15,6 @@ if [ "$(uname)" == "Darwin" ]; then
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   sudo apt-get install libglew-dev libxmu-dev libxi-dev qt5-default -y
   source ./scripts/setenv-unibuild.sh
-  ./scripts/uni-build-dependencies.sh
   ./scripts/check-dependencies.sh
   qmake openscad.pro
   make
