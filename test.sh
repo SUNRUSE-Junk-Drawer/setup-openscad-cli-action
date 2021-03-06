@@ -1,5 +1,7 @@
 set -e
 
+ls /home/runner/work/setup-openscad-cli-action/setup-openscad-cli-action/submodules/openscad/openscad
+
 rm -rf ./test/actual
 mkdir -p ./test/actual
 
