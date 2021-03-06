@@ -1,40 +1,24 @@
 set -e
 
 rm -rf ./test/actual
+mkdir -p ./test/actual
 
-openscad --batch --list-tags --trim ./test/example.ase --data ./test/actual/example.json --save-as ./test/actual/example.png
-
-cmp <(ls ./test/actual) <(echo "example.json
-example1.png
-example2.png
-example3.png
-example4.png
-example5.png
-example6.png
-example7.png
-example8.png
-example9.png")
+openscad ./submodules/openscad/openscad/examples/Basics/logo_and_text.scad --render -o ./test/actual/mesh.stl
+openscad ./submodules/openscad/openscad/examples/Basics/logo_and_text.scad --render -o ./test/actual/direct.png
+openscad ./test/from-stl.scad --render -o ./test/actual/from-stl.png
+openscad ./test/2d-example.scad --render -o ./test/actual/2d-example.png
+openscad ./test/2d-example.scad --render -o ./test/actual/2d-example.svg
 
 npm ci
 
-cmp <(npx ts-node ./test/convert-image.ts ./test/actual/example1.png) <(echo "48x32")
-cmp <(npx ts-node ./test/convert-image.ts ./test/actual/example2.png) <(echo "48x32")
-cmp <(npx ts-node ./test/convert-image.ts ./test/actual/example3.png) <(echo "48x32")
-cmp <(npx ts-node ./test/convert-image.ts ./test/actual/example4.png) <(echo "48x32")
-cmp <(npx ts-node ./test/convert-image.ts ./test/actual/example5.png) <(echo "48x32")
-cmp <(npx ts-node ./test/convert-image.ts ./test/actual/example6.png) <(echo "48x32")
-cmp <(npx ts-node ./test/convert-image.ts ./test/actual/example7.png) <(echo "48x32")
-cmp <(npx ts-node ./test/convert-image.ts ./test/actual/example8.png) <(echo "48x32")
-cmp <(npx ts-node ./test/convert-image.ts ./test/actual/example9.png) <(echo "48x32")
+npx svg2png ./test/actual/2d-example.svg --output ./test/actual/2d-example.svg.png
 
-cmp ./test/expected/example1.rgba ./test/actual/example1.rgba
-cmp ./test/expected/example2.rgba ./test/actual/example2.rgba
-cmp ./test/expected/example3.rgba ./test/actual/example3.rgba
-cmp ./test/expected/example4.rgba ./test/actual/example4.rgba
-cmp ./test/expected/example5.rgba ./test/actual/example5.rgba
-cmp ./test/expected/example6.rgba ./test/actual/example6.rgba
-cmp ./test/expected/example7.rgba ./test/actual/example7.rgba
-cmp ./test/expected/example8.rgba ./test/actual/example8.rgba
-cmp ./test/expected/example9.rgba ./test/actual/example9.rgba
+cmp <(npx ts-node ./test/convert-image.ts ./test/actual/direct.png) <(echo "512x512")
+cmp <(npx ts-node ./test/convert-image.ts ./test/actual/from-stl.png) <(echo "512x512")
+cmp <(npx ts-node ./test/convert-image.ts ./test/actual/2d-example.png) <(echo "512x512")
+cmp <(npx ts-node ./test/convert-image.ts ./test/actual/2d-example.svg.png) <(echo "10x10")
 
-cmp <(jq -cS . ./test/expected/example.json) <(jq -cS . ./test/actual/example.json)
+cmp ./test/expected/direct.rgba ./test/actual/direct.rgba
+cmp ./test/expected/from-stl.rgba ./test/actual/from-stl.rgba
+cmp ./test/expected/2d-example.rgba ./test/actual/2d-example.rgba
+cmp ./test/expected/2d-example.svg.rgba ./test/actual/2d-example.svg.rgba
