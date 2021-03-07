@@ -3,8 +3,8 @@ set -e
 rm -rf ./test/actual
 mkdir -p ./test/actual
 
-openscad ./submodules/openscad/openscad/examples/Basics/logo_and_text.scad --render -o ./test/actual/mesh.stl
-openscad ./submodules/openscad/openscad/examples/Basics/logo_and_text.scad --render -o ./test/actual/direct.png
+openscad ./clone/submodules/openscad/openscad/examples/Basics/logo_and_text.scad --render -o ./test/actual/mesh.stl
+openscad ./clone/submodules/openscad/openscad/examples/Basics/logo_and_text.scad --render -o ./test/actual/direct.png
 openscad ./test/from-stl.scad --render -o ./test/actual/from-stl.png
 openscad ./test/2d-example.scad --render -o ./test/actual/2d-example.png
 openscad ./test/2d-example.scad --render -o ./test/actual/2d-example.svg
