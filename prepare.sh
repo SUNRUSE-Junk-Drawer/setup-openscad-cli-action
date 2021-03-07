@@ -12,3 +12,9 @@ git remote add origin https://github.com/$NEOMURA_SETUP_OPENSCAD_CLI_ACTION_REPO
 git fetch origin $NEOMURA_SETUP_OPENSCAD_CLI_ACTION_REF:temp
 
 echo ::set-output name=sha::$(git rev-parse temp)
+
+if [ "$(uname)" == "Darwin" ]; then
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  sudo apt-get install libdouble-conversion -y
+else
+fi
