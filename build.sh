@@ -8,7 +8,6 @@ git submodule update --init --recursive --depth 1 submodules/openscad/openscad
 cd submodules/openscad/openscad
 
 if [ "$(uname)" == "Darwin" ]; then
-  source ./scripts/setenv-macos.sh
   ./scripts/macosx-build-homebrew.sh
   qmake openscad.pro
   make -j 6
