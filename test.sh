@@ -1,7 +1,5 @@
 set -e
 
-find /home/runner/work/setup-openscad-cli-action/setup-openscad-cli-action
-
 rm -rf ./test/actual
 mkdir -p ./test/actual
 
