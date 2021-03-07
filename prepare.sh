@@ -16,7 +16,7 @@ echo ::set-output name=sha::$(git rev-parse temp)
 if [ "$(uname)" == "Darwin" ]; then
   echo TODO
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  sudo apt-get install libdouble-conversion-dev libboost-regex-dev -y
+  sudo apt-get install libdouble-conversion-dev libboost-regex-dev libglew-dev libxmu-dev libxi-dev qt5-default qtmultimedia5-dev libboost-filesystem-dev libeigen3-dev libmpc-dev libqscintilla2-qt5-dev libcgal-dev libharfbuzz-dev libopencsg-dev -y
 else
   echo TODO
 fi
