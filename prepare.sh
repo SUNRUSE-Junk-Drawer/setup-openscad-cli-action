@@ -14,7 +14,9 @@ git fetch origin $NEOMURA_SETUP_OPENSCAD_CLI_ACTION_REF:temp
 echo ::set-output name=sha::$(git rev-parse temp)
 
 if [ "$(uname)" == "Darwin" ]; then
+  echo TODO
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   sudo apt-get install libdouble-conversion -y
 else
+  echo TODO
 fi
