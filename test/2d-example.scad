@@ -1,4 +1,4 @@
 difference() {
-    square(10, center = true);
-    circle(4);
+    square(100, center = true);
+    circle(40);
 };
