@@ -16,7 +16,7 @@ echo ::set-output name=sha::$(git rev-parse temp)
 if [ "$(uname)" == "Darwin" ]; then
   echo TODO
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  sudo apt-get install double-conversion -y
+  sudo apt-get install libdouble-conversion3 -y
 else
   echo TODO
 fi
