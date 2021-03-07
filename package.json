@@ -24,6 +24,5 @@
     "pixelmatch": "5.2.1",
     "svg2png": "4.1.1"
   },
-  "types": "index.d.ts",
   "sideEffects": false
 }
