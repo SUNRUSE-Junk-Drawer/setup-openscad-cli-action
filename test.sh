@@ -21,7 +21,7 @@ npm ci
 
 npx svg2png ./test/actual/2d-example.svg --output ./test/actual/2d-example.svg.png
 
-mogirfy -resize 25% test/actual/*.png
+mogrify -resize 25% test/actual/*.png
 
 npx pixelmatch ./test/expected/direct.png ./test/actual/direct.png ./test/actual/direct-difference.png 0.1
 npx pixelmatch ./test/expected/from-stl.png ./test/actual/from-stl.png ./test/actual/from-stl-difference.png 0.1
