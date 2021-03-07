@@ -1,5 +1,9 @@
 set -e
 
+cd clone
+git submodule update --init --recursive --depth 1 submodules/openscad/openscad
+cd ..
+
 rm -rf ./test/actual
 mkdir -p ./test/actual
 
