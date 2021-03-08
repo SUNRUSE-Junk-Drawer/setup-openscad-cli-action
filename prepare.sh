@@ -14,7 +14,6 @@ git fetch origin $NEOMURA_SETUP_OPENSCAD_CLI_ACTION_REF:temp
 echo ::set-output name=sha::$(git rev-parse temp)
 
 if [ "$(uname)" == "Darwin" ]; then
-  cd clone
   git checkout temp
   git submodule update --init --recursive --depth 1 submodules/openscad/openscad
   cd submodules/openscad/openscad
